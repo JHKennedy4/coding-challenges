@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Candidate Code Test</title>
+        <style type="text/css">
+            a {margin:5px;} /* Give the links some breathing room */
+        </style>
+    </head>
+    <body>
+        <a href="#" id='click'>Click</a>
+        <a href="#" id='mouseover'>Mouse over</a>
+        <a href="#" id='dblclick'>Click twice</a>
+
+        <script type="text/javascript">
+
+            (function (document) {
+                var user_id = 8675309;
+                var ids = ['click', 'mouseover', 'dblclick'];
+
+                ids.forEach(bindEvent);
+
+                function bindEvent (id) {
+                    var el = document.getElementById(id);
+
+                    el.addEventListener(id, function (e) {
+                        // needs to postJSON
+                        var params = JSON.stringify({
+                            event: id,
+                            user_id: user_id
+                        });
+                        post('/controller.php', params, logResult);
+                    });
+                }
+
+                function logResult(xhr) {
+                    if (xhr.status === 200) {
+                        console.log("Success: " + xhr.response);
+                    } else {
+                        console.log("Failure ("+ xhr.status +"): " + xhr.statusText);
+                    }
+                }
+
+                // or use jQuery
+                function post(url, data, callback) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = ensureReadiness;
+
+                    function ensureReadiness() {
+                        if(xhr.readyState < 4) {
+                            return;
+                        }
+
+                        if(xhr.status !== 200) {
+                            callback(xhr);
+                        }
+
+                        // all is well
+                        if(xhr.readyState === 4) {
+                            callback(xhr);
+                        }
+                    }
+
+                    xhr.open("POST", url, true);
+                    xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+
+                    xhr.send(data);
+                }
+
+            }(window.document));
+
+/*
+ *  Instructions:
+ *  Please add the necessary event handlers for each anchor element as described in
+ *  the text it contains. Each event must create a POST request with a single
+ *  parameter to an endpoint which uses the activityModel class to process the data.
+ *
+ *  The parameter's value must be a JSON object containing the event type
+ *  (click, mouse over, etc.) and the user id (an integer of your choice).
+ *  Send output to the browser's JavaScript console in case of success or error
+ *  with an appropriate message for each case.
+ *
+ *  Note that the anchor tags will not point to a different URI. You may choose
+ *  to use an external library to add event handlers and create HTTP requests.
+ *
+ */
+        </script>
+    </body>
+</html>

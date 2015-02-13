@@ -1,0 +1,35 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+    width: 200px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    background-color: pink;
+    position: relative;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.menu {
+    position: absolute;
+    top: 0px;
+    border-bottom: 1px solid black;
+}
+
+.menu .menu {
+    top: -1px;
+}
+
+.menu-item .menu-item {
+    background-color: violet;
+}
+
+.menu-item .menu-item .menu-item {
+    background-color: lightgreen;
+}
+

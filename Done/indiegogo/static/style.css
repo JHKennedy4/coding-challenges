@@ -1,0 +1,56 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:500,700,900,400);
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.progress-bar {
+    width: 100%;
+    display: inline-block;
+}
+
+.progress {
+    float: left;
+    display: inline-block;
+    height: 20px;
+    background-color: pink;
+}
+
+.left {
+    float: left;
+    background-color: grey;
+    height: 20px;
+    display: inline-block;
+}
+
+ul {
+    display: block;
+    width: 800px;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+li {
+    float: left;
+    list-style: none;
+    max-width: 335px;
+    margin: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 20px
+}
+
+h1 {
+    text-align: center;
+}
+
+.input, label, input {
+    width: 780px;
+    margin: 0 auto;
+}
+

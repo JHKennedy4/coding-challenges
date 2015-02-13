@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Minibeat by John Kennedy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="exercise.css">
+
+    <!-- Templates -->
+    <script type="text/html" id="details">
+        <div class="details">
+            <h3>{{title}}</h3>
+            <hr>
+            <ul>
+            {{#each stats.toprefs}}
+              <li>{{domain}} (visitors: {{visitors}})</li>
+            {{/each}}
+            </ul>
+        </div>
+    </script>
+
+    <script type="text/html" id="pages">
+<ul class="page-list">
+            {{#each pages}}
+                <li onclick="{{func}}">
+                <h3>
+                <span class="visitors">{{stats.people}}</span>
+                {{title}}
+                </h3>
+                </li>
+            {{/each}}
+        </ul>
+    </script>
+
+  </head>
+  <body>
+
+    <!-- header -->
+    <div class="header">
+      <h1>Minibeat</h1>
+    </div>
+
+    <!-- content -->
+    <div class="content">
+
+        <div class="column"  id="pages-column">
+        </div>
+
+        <div class="column" id="details-column">
+        </div>
+
+    </div>
+
+    <script src="modules/cbUtils.js"></script>
+    <script src="modules/template_engine.js"></script>
+    <script src="modules/EventBus.js"></script>
+    <script src="modules/models/Page.js"></script>
+    <script src="modules/collections/PageCollection.js"></script>
+    <script src="modules/views/Page.js"></script>
+    <script src="modules/views/PageCollection.js"></script>
+    <script src="modules/exercise.js"></script>
+  </body>
+</html>

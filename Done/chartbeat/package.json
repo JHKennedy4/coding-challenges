@@ -1,0 +1,15 @@
+{
+  "name": "package",
+  "version": "0.0.0",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "sinon": "^1.12.2",
+    "karma-sinon": "^1.0.4",
+    "karma-chai": "^0.1.0",
+    "mocha": "^2.1.0",
+    "karma-mocha": "^0.1.10",
+    "karma": "^0.12.31",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-nyan-reporter": "0.0.50"
+  }
+}
